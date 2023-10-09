@@ -88,25 +88,13 @@ class Signals:
 
         excel_data = pd.read_excel(file)
 
-        frames = []
+        variables = excel_data['Переменная']
 
-        for index, row in excel_data.iterrows():
-            params = row[1:].tolist()
+        dec_values = [self.get_signals_by_param(variable)['dec'] for variable in variables]
 
-            results = [self.get_signals_by_param(param) for param in params]
+        excel_data['DEC'] = dec_values
 
-            hex_values = [result['hex'] for result in results]
-            dec_values = [result['dec'] for result in results]
-
-            params_row = pd.DataFrame([[row.iloc[0]] + row[1:].tolist()], columns=excel_data.columns)
-            hex_row = pd.DataFrame([[f'{row.iloc[0]}-HEX'] + hex_values], columns=excel_data.columns)
-            dec_row = pd.DataFrame([[f'{row.iloc[0]}-DEC'] + dec_values], columns=excel_data.columns)
-
-            frames.extend([params_row, hex_row, dec_row])
-
-        signals_df = pd.concat(frames, ignore_index=True)
-
-        return signals_df
+        return excel_data
 
     @staticmethod
     def save_data_to_file(processed_data: pd.DataFrame, file_name: str):
@@ -127,11 +115,6 @@ class Signals:
                     row_index = cell.row
                     if row_index == 1:
                         cell.fill = PatternFill(start_color="4fad5c", end_color="4fad5c", fill_type="solid")
-                    else:
-                        if row[0].value and str(row[0].value).isdigit():
-                            cell.fill = PatternFill(start_color="f6ff00", end_color="f6ff00", fill_type="solid")
-                        else:
-                            cell.fill = PatternFill(start_color="fbfcd9", end_color="fbfcd9", fill_type="solid")
 
             for col_cells in worksheet.columns:
                 length = max(len(str(cell.value)) for cell in col_cells)

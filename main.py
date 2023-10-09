@@ -1,5 +1,7 @@
 import os
 import asyncio
+import uvicorn
+import dotenv
 
 from fastapi import FastAPI, HTTPException, UploadFile, Request
 from fastapi.middleware.cors import CORSMiddleware
@@ -10,6 +12,9 @@ from starlette.responses import HTMLResponse
 
 from signals import Signals
 from schemas import SignalParams
+
+host = dotenv.get_key('.env', 'HOST')
+port = dotenv.get_key('.env', 'PORT')
 
 app = FastAPI(title='Signals API', version='0.1.0')
 
@@ -77,7 +82,7 @@ async def convert_signals_by_xlsx(xlsx_file: UploadFile):
         raise HTTPException(status_code=400, detail="Only XLSX files are allowed")
 
     processed_data = signals.get_signals_by_xlsx_params(xlsx_file.file.read())
-    file_name = f"{xlsx_file.filename[:-5]}_processed.xlsx"
+    file_name = "converted_signals.xlsx"
     output_path = signals.save_data_to_file(processed_data, file_name)
     headers = {'Content-Disposition': f'attachment; filename={file_name}'}
     response = FileResponse(output_path, headers=headers)
@@ -89,4 +94,8 @@ async def convert_signals_by_xlsx(xlsx_file: UploadFile):
 
 @app.get("/convert-signals/", response_class=HTMLResponse)
 async def read_item(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    return templates.TemplateResponse("index.html", {"request": request, "host": host, "port": port})
+
+
+if __name__ == "__main__":
+    uvicorn.run(app, host=host, port=int(port))
