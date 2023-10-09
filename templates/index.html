@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../static/styles/style.css">
+  <title>Toggle Form</title>
+</head>
+<body>
+  <button onclick="toggleForm()">Переключить формы</button>
+  <div class="form-container">
+    <form id="form1" class="form-section">
+        <div class="form-group">
+            <h2>Конвертировать параметров сигнал в HEX и DEX</h2>
+
+            <label for="position">Позиция:</label>
+            <input type="number" id="position" required>
+
+            <label for="machine">Автомат:</label>
+            <input type="text" id="machine" required>
+
+            <label for="job">Работа:</label>
+            <input type="text" id="job" required>
+
+            <label for="failure">Авария:</label>
+            <input type="text" id="failure" required>
+
+            <label for="remote_mode">Дист. Режим:</label>
+            <input type="text" id="remote_mode" required>
+
+            <label for="manual_start">Ручной пуск:</label>
+            <input type="text" id="manual_start" required>
+
+            <label for="running">Включение:</label>
+            <input type="text" id="running" required>
+
+            <label for="running_seconds">Наработка сек:</label>
+            <input type="text" id="running_seconds" required>
+
+            <label for="number_of_starts">Кол-во пусков:</label>
+            <input type="text" id="number_of_starts" required>
+
+            <input type="button" value="Covert" onclick="convertParameters()"/>
+        </div>
+    </form>
+
+    <form id="form2" class="form-section" style="display: none;">
+        <div class="form-group">
+            <h2>Конвертировать параметров сигнал в HEX и DEX</h2>
+            <label for="signal">Cигнал:</label>
+            <input type="text" id="signal" required>
+            <input type="button" value="Covert" onclick="convertParam()"/>
+        </div>
+    </form>
+
+    <form id="form3" class="form-section" style="display: none;">
+        <div class="form-group">
+            <h2>Конвертировать параметров сигнал в HEX и DEX</h2>
+                <label class="file-label">
+                    <input type="file" onchange="displayFileName(this)" id="file-input" class="file-input"/>
+                    Choose a file
+                </label>
+                <div id="file-name-display" style="color: #007BFF;"></div>
+                <br>
+            <input type="button" value="Covert" onclick="convertFile()"/>
+        </div>
+    </form>
+  </div><br>
+  <div id="error-message" style="color: red;"></div>
+  <div class="converted-data">
+   <h2>Конвертированные данные</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Название параметров</th>
+            <th>Парметры</th>
+            <th>HEX</th>
+            <th>DEC</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+  </div>
+  <script src="../static/js/script.js"></script>
+</body>
+</html>

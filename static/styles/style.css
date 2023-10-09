@@ -1,0 +1,128 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+}
+
+button {
+	display: block;
+	margin: 20px auto;
+}
+
+.form-container {
+	max-width: 500px;
+	margin: 0 auto;
+	padding: 20px;
+	background-color: white;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+	display: flex;
+	flex-direction: column;
+}
+
+label {
+	display: block;
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+input[type="text"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+	margin-bottom: 10px;
+}
+
+input[type="number"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+	margin-bottom: 10px;
+}
+
+input[type="button"] {
+    padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	font-size: 16px;
+	cursor: pointer;
+	background-color: #007BFF;
+	color: white;
+}
+
+input[type="button"]:hover {
+	background-color: #0056b3;
+}
+
+button {
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	font-size: 16px;
+	cursor: pointer;
+	background-color: #007BFF;
+	color: white;
+}
+
+button:hover {
+	background-color: #0056b3;
+}
+
+button.toggle-button {
+	display: block;
+	margin: 20px auto;
+}
+  
+.file-label {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: white;
+    color: #007BFF;
+    border-radius: 5px;
+	border: 3px solid #007BFF;
+    cursor: pointer;
+}
+
+.file-input {
+    display: none;
+}
+
+
+.file-label:hover {
+	color: #0056b3;
+    border: 3px solid #0056b3;
+}
+
+.converted-data {
+	max-width: 500px;
+	margin: 0 auto;
+	padding: 20px;
+	background-color: white;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.converted-data table {
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #dddddd;
+    border-collapse: collapse;
+  }
+
+  .converted-data th {
+    font-weight: bold;
+    padding: 5px;
+    background: #efefef;
+    border: 1px solid #dddddd;
+  }
+
+  .converted-data td {
+    border: 1px solid #dddddd;
+    padding: 5px;
+  }
+
+  
