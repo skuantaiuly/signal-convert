@@ -12,7 +12,7 @@
   <div class="form-container">
     <form id="form1" class="form-section">
         <div class="form-group">
-            <h2>Конвертировать параметров сигнал в HEX и DEX</h2>
+            <h2>Конвертировать параметров сигнал в HEX и DEC</h2>
 
             <label for="position">Позиция:</label>
             <input type="number" id="position" required>
@@ -41,22 +41,22 @@
             <label for="number_of_starts">Кол-во пусков:</label>
             <input type="text" id="number_of_starts" required>
 
-            <input type="button" value="Covert" onclick="convertParameters('{{host}}', '{{port}}')"/>
+            <input type="button" value="Convert" onclick="convertParameters('{{host}}', '{{port}}')"/>
         </div>
     </form>
 
     <form id="form2" class="form-section" style="display: none;">
         <div class="form-group">
-            <h2>Конвертировать параметров сигнал в HEX и DEX</h2>
+            <h2>Конвертировать параметров сигнал в HEX и DEC</h2>
             <label for="signal">Cигнал:</label>
             <input type="text" id="signal" required>
-            <input type="button" value="Covert" onclick="convertParam('{{host}}', '{{port}}')"/>
+            <input type="button" value="Convert" onclick="convertParam('{{host}}', '{{port}}')"/>
         </div>
     </form>
 
     <form id="form3" class="form-section" style="display: none;">
         <div class="form-group">
-            <h2>Конвертировать параметров сигнал в HEX и DEX</h2>
+            <h2>Конвертировать параметров сигнал в HEX и DEC</h2>
             <label for="file-input">Выберите файл:</label>
             <a href="{{ url_for('static', path='/ex_files/ШУ1_Сигналы.xlsx') }}">Пример входного файла</a><br>
                 <label class="file-label">
@@ -65,7 +65,7 @@
                 </label>
                 <div id="file-name-display" style="color: #007BFF;"></div>
                 <br>
-            <input type="button" value="Covert" onclick="convertFile('{{host}}', '{{port}}')"/>
+            <input type="button" value="Convert" onclick="convertFile('{{host}}', '{{port}}')"/>
         </div>
     </form>
   </div><br>

@@ -56,7 +56,6 @@ function convertParameters(host, port) {
     number_of_starts
   };
   const param_names = ['Автомат', 'Работа', 'Авария', 'Дист. Режим', 'Ручной пуск', 'Включение', 'Наработка сек', 'Кол-во пусков']
-  console.log('Data:', data);
 
   fetch(`http://${host}:${port}/api/convert-signals/`, {
     method: 'POST',
@@ -73,7 +72,6 @@ function convertParameters(host, port) {
     return response.json();
   })
   .then(data => {
-    console.log('Converted Data:', data.values);
     const tbody = document.querySelector('.converted-data table tbody');
     tbody.innerHTML = '';
     const row = document.createElement('tr');
@@ -118,7 +116,6 @@ function convertParam(host, port) {
     return response.json();
   })
   .then (data => {
-    console.log('Converted Data:', data);
     const tbody = document.querySelector('.converted-data table tbody');
     tbody.innerHTML = '';
 
@@ -127,7 +124,7 @@ function convertParam(host, port) {
         <td>-</td>
         <td>${data.param}</td>
         <td>${data.values.hex}</td>
-        <td>${data.values.hex}</td>
+        <td>${data.values.dec}</td>
     `;
     tbody.appendChild(row);
   })
