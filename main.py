@@ -14,7 +14,7 @@ from schemas import SignalParams
 
 # host = dotenv.get_key('.env', 'HOST')
 # port = dotenv.get_key('.env', 'PORT')
-api_url = dotenv.get_key('.env', 'API_URL')
+api_url = os.getenv("API_URL")
 
 app = FastAPI(title='Signals API', version='0.1.0')
 
