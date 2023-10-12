@@ -2,6 +2,7 @@ import pandas as pd
 import json
 import re
 import io
+import os
 
 from schemas import SignalParams
 from fastapi import UploadFile
@@ -98,7 +99,11 @@ class Signals:
 
     @staticmethod
     def save_data_to_file(processed_data: pd.DataFrame, file_name: str):
-        path_to_file = f"static/preprocessed_data/{file_name}"
+        path_to_directory = "static/preprocessed_data"
+        path_to_file = f"{path_to_directory}/{file_name}"
+
+        if not os.path.exists(path_to_directory):
+            os.makedirs(path_to_directory)
 
         with pd.ExcelWriter(path_to_file, engine='openpyxl') as writer:
             processed_data.to_excel(writer, sheet_name='Sheet1', index=False)
