@@ -8,4 +8,4 @@ RUN pip install --upgrade pip
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-CMD gunicorn main:app --bind $HOST:$PORT
+CMD gunicorn -b 0.0.0.0:8000 -w 4 main:app
