@@ -8,4 +8,4 @@ RUN pip install --upgrade pip
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-CMD gunicorn -b 0.0.0.0:8000 -w 4 main:app
+CMD uvicorn main:app --reload --host=0.0.0.0 --port=8000

@@ -1,6 +1,5 @@
 import os
 import asyncio
-import uvicorn
 import dotenv
 
 from fastapi import FastAPI, HTTPException, UploadFile, Request
@@ -95,7 +94,3 @@ async def convert_signals_by_xlsx(xlsx_file: UploadFile):
 @app.get("/convert-signals/", response_class=HTMLResponse)
 async def read_item(request: Request):
     return templates.TemplateResponse("index.html", {"request": request, "host": host, "port": port})
-
-
-# if __name__ == "__main__":
-#     uvicorn.run(app, host=host, port=int(port))
