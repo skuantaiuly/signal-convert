@@ -24,7 +24,7 @@ sniffio==1.3.0
 starlette==0.27.0
 typing_extensions==4.8.0
 tzdata==2023.3
-guniconrn
+gunicorn
 uvloop==0.17.0
 watchfiles==0.20.0
 websockets==11.0.3
