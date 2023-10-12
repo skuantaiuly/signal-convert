@@ -57,7 +57,7 @@ function convertParameters(api_url) {
   };
   const param_names = ['Автомат', 'Работа', 'Авария', 'Дист. Режим', 'Ручной пуск', 'Включение', 'Наработка сек', 'Кол-во пусков']
 
-  fetch(`http://${api_url}/api/convert-signals/`, {
+  fetch(`${api_url}/api/convert-signals/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -102,7 +102,7 @@ function convertParameters(api_url) {
 
 function convertParam(api_url) {
   const signal_param = document.getElementById('signal').value;
-  fetch(`http://${api_url}/api/convert-signal/`+ signal_param, {
+  fetch(`${api_url}/api/convert-signal/`+ signal_param, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -142,7 +142,7 @@ function convertFile(api_url) {
   const formData = new FormData();
   formData.append('xlsx_file', file, file.name);
 
-  fetch(`http://${api_url}/api/convert-signals/by-xlsx`, {
+  fetch(`${api_url}/api/convert-signals/by-xlsx`, {
     method: 'POST',
     body: formData,
     headers: {
