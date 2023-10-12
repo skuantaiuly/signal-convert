@@ -97,5 +97,5 @@ async def read_item(request: Request):
     return templates.TemplateResponse("index.html", {"request": request, "host": host, "port": port})
 
 
-if __name__ == "__main__":
-    uvicorn.run(app, host=host, port=int(port))
+# if __name__ == "__main__":
+#     uvicorn.run(app, host=host, port=int(port))
