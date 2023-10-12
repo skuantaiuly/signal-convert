@@ -33,7 +33,7 @@ function displayFileName(input) {
   }
 }
 
-function convertParameters(host, port) {
+function convertParameters(api_url) {
   const position = parseInt(document.getElementById('position').value, 10);
   const machine = document.getElementById('machine').value;
   const job = document.getElementById('job').value;
@@ -57,7 +57,7 @@ function convertParameters(host, port) {
   };
   const param_names = ['Автомат', 'Работа', 'Авария', 'Дист. Режим', 'Ручной пуск', 'Включение', 'Наработка сек', 'Кол-во пусков']
 
-  fetch(`http://${host}:${port}/api/convert-signals/`, {
+  fetch(`http://${api_url}/api/convert-signals/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -100,9 +100,9 @@ function convertParameters(host, port) {
   });
 }
 
-function convertParam(host, port) {
+function convertParam(api_url) {
   const signal_param = document.getElementById('signal').value;
-  fetch(`http://${host}:${port}/api/convert-signal/`+ signal_param, {
+  fetch(`http://${api_url}/api/convert-signal/`+ signal_param, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -130,7 +130,7 @@ function convertParam(host, port) {
   })
 }
 
-function convertFile(host, port) {
+function convertFile(api_url) {
   const fileInput = document.getElementById('file-input');
   const file = fileInput.files[0];
 
@@ -142,7 +142,7 @@ function convertFile(host, port) {
   const formData = new FormData();
   formData.append('xlsx_file', file, file.name);
 
-  fetch(`http://${host}:${port}/api/convert-signals/by-xlsx`, {
+  fetch(`http://${api_url}/api/convert-signals/by-xlsx`, {
     method: 'POST',
     body: formData,
     headers: {

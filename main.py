@@ -12,8 +12,9 @@ from starlette.responses import HTMLResponse
 from signals import Signals
 from schemas import SignalParams
 
-host = dotenv.get_key('.env', 'HOST')
-port = dotenv.get_key('.env', 'PORT')
+# host = dotenv.get_key('.env', 'HOST')
+# port = dotenv.get_key('.env', 'PORT')
+api_url = dotenv.get_key('.env', 'API_URL')
 
 app = FastAPI(title='Signals API', version='0.1.0')
 
@@ -93,4 +94,4 @@ async def convert_signals_by_xlsx(xlsx_file: UploadFile):
 
 @app.get("/convert-signals/", response_class=HTMLResponse)
 async def read_item(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request, "host": host, "port": port})
+    return templates.TemplateResponse("index.html", {"request": request, "api_url": api_url})

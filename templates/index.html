@@ -41,7 +41,7 @@
             <label for="number_of_starts">Кол-во пусков:</label>
             <input type="text" id="number_of_starts" required>
 
-            <input type="button" value="Convert" onclick="convertParameters('{{host}}', '{{port}}')"/>
+            <input type="button" value="Convert" onclick="convertParameters('{{api_url}}')"/>
         </div>
     </form>
 
@@ -50,7 +50,7 @@
             <h2>Конвертировать параметров сигнал в HEX и DEC</h2>
             <label for="signal">Cигнал:</label>
             <input type="text" id="signal" required>
-            <input type="button" value="Convert" onclick="convertParam('{{host}}', '{{port}}')"/>
+            <input type="button" value="Convert" onclick="convertParam('{{api_url}}')"/>
         </div>
     </form>
 
@@ -65,7 +65,7 @@
                 </label>
                 <div id="file-name-display" style="color: #007BFF;"></div>
                 <br>
-            <input type="button" value="Convert" onclick="convertFile('{{host}}', '{{port}}')"/>
+            <input type="button" value="Convert" onclick="convertFile('{{api_url}}')"/>
         </div>
     </form>
   </div><br>
